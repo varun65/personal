@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Company" table="COMPANY">
+		<id name="companyId" type="int" column="COMPANY_ID">
+			<generator class="native"></generator>
+		</id>
+		
+	<component name="address" class="Address">
+	<property name="street" type="string" column="Street"></property>
+	<property name="city" type="string" column="city"></property>
+	</component>
+	
+	<bag name="items" cascade="save-update" fetch="select" lazy="false">
+	<key column="COMPANY_ID"></key>
+	<one-to-many class="Item"/>
+	</bag>
+	
+	<bag name=""
+	</class>
+</hibernate-mapping>
+
